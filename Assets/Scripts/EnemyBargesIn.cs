@@ -1,11 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyTimer : MonoBehaviour
+public class EnemyBargesIn : MonoBehaviour
 {
-    public GameObject enemy;          // drag your enemy object here
-    public Animator doorAnimator;     // drag the door's Animator here
-    public float timerDuration = 180f; // 3 minutes
+    public float timerDuration = 10f;
+    public Transform endPosition;
+    public float moveSpeed = 3f;
+    public GameObject door;
+    public float doorOpenAngle = 90f;
+    public float doorOpenSpeed = 2f;
+
+    private bool moving = false;
+    private bool openDoor = false;
+    private Quaternion targetRotation;
 
     void Start()
     {
@@ -15,15 +22,22 @@ public class EnemyTimer : MonoBehaviour
     IEnumerator EnemyEntrance()
     {
         yield return new WaitForSeconds(timerDuration);
+        targetRotation = Quaternion.Euler(0, doorOpenAngle, 0);
+        openDoor = true;
+        yield return new WaitForSeconds(1f);
+        moving = true;
+    }
 
-        // 1. Play door barge animation
-        if (doorAnimator != null)
-            doorAnimator.SetTrigger("BargeTrigger");
+    void Update()
+    {
+        if (openDoor)
+            door.transform.rotation = Quaternion.Lerp(door.transform.rotation, targetRotation, doorOpenSpeed * Time.deltaTime);
 
-        // 2. Activate and play enemy barge-in animation
-        enemy.SetActive(true);
-        Animator enemyAnim = enemy.GetComponent<Animator>();
-        if (enemyAnim != null)
-            enemyAnim.SetTrigger("StartBarge");
+        if (moving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, endPosition.position, moveSpeed * Time.deltaTime);
+            if (transform.position == endPosition.position)
+                moving = false;
+        }
     }
 }
