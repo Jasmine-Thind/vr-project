@@ -1847,8 +1847,8 @@ MonoBehaviour:
   timerDuration: 5
   endPosition: {fileID: 2120984016}
   moveSpeed: 3
-  door: {fileID: 1668473026}
-  doorOpenAngle: 90
+  door: {fileID: 1870786698}
+  doorOpenAngle: -90
   doorOpenSpeed: 2
 --- !u!1 &737678062
 GameObject:
@@ -3221,7 +3221,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2139144133}
+    m_TransformParent: {fileID: 1870786699}
     m_Modifications:
     - target: {fileID: 100006, guid: 8c088c51437f8e84c8ccf368945d30c0, type: 3}
       propertyPath: m_Name
@@ -3245,7 +3245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 8c088c51437f8e84c8ccf368945d30c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.14
+      value: -0.60923004
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 8c088c51437f8e84c8ccf368945d30c0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3253,7 +3253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 8c088c51437f8e84c8ccf368945d30c0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.902
+      value: 0.009959698
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 8c088c51437f8e84c8ccf368945d30c0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4978,11 +4978,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1306530790}
   m_SourcePrefab: {fileID: 100100000, guid: 36d8dee32598ee9429a422732baf5b93, type: 3}
---- !u!1 &1668473026 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100006, guid: 8c088c51437f8e84c8ccf368945d30c0, type: 3}
-  m_PrefabInstance: {fileID: 1254398965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1679867746
 GameObject:
   m_ObjectHideFlags: 0
@@ -5330,6 +5325,38 @@ MonoBehaviour:
     _installationVariants:
     - _memberName: variant
       _value: '{"value__":0}'
+--- !u!1 &1870786698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1870786699}
+  m_Layer: 0
+  m_Name: DoorHinge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1870786699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870786698}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.46922994, y: 0, z: 0.89204025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1016442967}
+  m_Father: {fileID: 2139144133}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1882395485
 GameObject:
   m_ObjectHideFlags: 0
@@ -6627,7 +6654,7 @@ Transform:
   m_GameObject: {fileID: 2120984015}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.66, y: 0, z: 5.027}
+  m_LocalPosition: {x: 2.66, y: 0, z: 4.573}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6665,10 +6692,10 @@ Transform:
   - {fileID: 1909180294}
   - {fileID: 121897570}
   - {fileID: 2038964122}
-  - {fileID: 1016442967}
   - {fileID: 453010999}
   - {fileID: 445447466}
   - {fileID: 246971120}
+  - {fileID: 1870786699}
   m_Father: {fileID: 1555905640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
