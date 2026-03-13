@@ -1792,7 +1792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5fd9f0a05bf0feb4a81d05cff139c317, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1801,6 +1801,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5fd9f0a05bf0feb4a81d05cff139c317, type: 3}
       insertIndex: -1
       addedObject: {fileID: 692927903}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5fd9f0a05bf0feb4a81d05cff139c317, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 692927904}
   m_SourcePrefab: {fileID: 100100000, guid: 5fd9f0a05bf0feb4a81d05cff139c317, type: 3}
 --- !u!1 &692927902 stripped
 GameObject:
@@ -1829,6 +1832,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &692927904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692927902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21426dd83d0da04c999b0a500a9d7aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBargesIn
+  timerDuration: 5
+  endPosition: {fileID: 2120984016}
+  moveSpeed: 3
+  door: {fileID: 1668473026}
+  doorOpenAngle: 90
+  doorOpenSpeed: 2
 --- !u!1 &737678062
 GameObject:
   m_ObjectHideFlags: 0
@@ -4957,6 +4978,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1306530790}
   m_SourcePrefab: {fileID: 100100000, guid: 36d8dee32598ee9429a422732baf5b93, type: 3}
+--- !u!1 &1668473026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: 8c088c51437f8e84c8ccf368945d30c0, type: 3}
+  m_PrefabInstance: {fileID: 1254398965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1679867746
 GameObject:
   m_ObjectHideFlags: 0
@@ -6572,6 +6598,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 911233453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2120984015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2120984016}
+  m_Layer: 0
+  m_Name: EnemyEndPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2120984016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120984015}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.66, y: 0, z: 5.027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2139144132
 GameObject:
   m_ObjectHideFlags: 0
@@ -6625,3 +6682,4 @@ SceneRoots:
   - {fileID: 1689799547}
   - {fileID: 599769629}
   - {fileID: 692927901}
+  - {fileID: 2120984016}
