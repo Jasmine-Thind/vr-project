@@ -7,7 +7,7 @@ public class EnemyBargesIn : MonoBehaviour
     public Transform endPosition;
     public float moveSpeed = 3f;
     public GameObject door;
-    public float doorOpenAngle = 90f;
+    public float doorOpenAngle = -90f;
     public float doorOpenSpeed = 2f;
 
     private bool moving = false;
