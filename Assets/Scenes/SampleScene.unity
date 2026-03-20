@@ -696,6 +696,42 @@ MonoBehaviour:
   installationRoutineCheckpoint:
     _installationRoutineId: 
     _installationVariants: []
+--- !u!136 &147481531
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147481525}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &147481532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147481525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58f337e4b29a19478dd3fe13e1a5c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 100
 --- !u!1 &202327515
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,6 +1031,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db58d81029d671d41a20b1878fe12ee7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 220375082}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db58d81029d671d41a20b1878fe12ee7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 220375083}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db58d81029d671d41a20b1878fe12ee7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 220375084}
   m_SourcePrefab: {fileID: 100100000, guid: db58d81029d671d41a20b1878fe12ee7, type: 3}
 --- !u!1 &220375081 stripped
 GameObject:
@@ -1019,6 +1061,43 @@ MonoBehaviour:
   door: {fileID: 1870786698}
   doorOpenAngle: -90
   doorOpenSpeed: 2
+--- !u!136 &220375083
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220375081}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &220375084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220375081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443c6fbfb31c2284da511e81b4cc6e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  damage: 10
+  attackRate: 1
 --- !u!1 &232846785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36d8dee32598ee9429a422732baf5b93, type: 3}
@@ -2812,6 +2891,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5fd9f0a05bf0feb4a81d05cff139c317, type: 3}
       insertIndex: -1
       addedObject: {fileID: 692927904}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5fd9f0a05bf0feb4a81d05cff139c317, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 692927905}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5fd9f0a05bf0feb4a81d05cff139c317, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 692927906}
   m_SourcePrefab: {fileID: 100100000, guid: 5fd9f0a05bf0feb4a81d05cff139c317, type: 3}
 --- !u!1 &692927902 stripped
 GameObject:
@@ -2858,6 +2943,43 @@ MonoBehaviour:
   door: {fileID: 1870786698}
   doorOpenAngle: -90
   doorOpenSpeed: 2
+--- !u!136 &692927905
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692927902}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &692927906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692927902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443c6fbfb31c2284da511e81b4cc6e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  damage: 10
+  attackRate: 1
 --- !u!1 &734270450
 GameObject:
   m_ObjectHideFlags: 0
@@ -3818,6 +3940,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf65f43cbc111da4881a35a7ffee61db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 951881720}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf65f43cbc111da4881a35a7ffee61db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 951881721}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf65f43cbc111da4881a35a7ffee61db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 951881722}
   m_SourcePrefab: {fileID: 100100000, guid: cf65f43cbc111da4881a35a7ffee61db, type: 3}
 --- !u!1 &951881719 stripped
 GameObject:
@@ -3842,6 +3970,43 @@ MonoBehaviour:
   door: {fileID: 1870786698}
   doorOpenAngle: -90
   doorOpenSpeed: 2
+--- !u!136 &951881721
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951881719}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &951881722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951881719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443c6fbfb31c2284da511e81b4cc6e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  damage: 10
+  attackRate: 1
 --- !u!1 &971394776
 GameObject:
   m_ObjectHideFlags: 0
@@ -5741,6 +5906,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OVRCameraRig
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5
@@ -5811,6 +5980,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       insertIndex: 1
       addedObject: {fileID: 147481530}
+    - targetCorrespondingSourceObject: {fileID: 100004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 147481531}
+    - targetCorrespondingSourceObject: {fileID: 100004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 147481532}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1644474899}
