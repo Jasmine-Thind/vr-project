@@ -12,7 +12,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (currentHealth <= 0) return;
         currentHealth -= amount;
+        currentHealth = Mathf.Max(currentHealth, 0);
         Debug.Log("Player Health: " + currentHealth);
 
         if (currentHealth <= 0)
