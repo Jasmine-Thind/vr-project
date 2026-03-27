@@ -21,8 +21,15 @@ public class PourPotion : MonoBehaviour
 
         if (tiltAngle > maxTilt)
         {
-            if (!isSpilling && !pouredFully) StartPour();
-            UpdateFillLevel();
+            if (!isSpilling && !pouredFully)
+            {
+                StartPour();
+                
+            }
+            if (isSpilling)
+            {
+                UpdateFillLevel();
+            }
         }
         else
         {
