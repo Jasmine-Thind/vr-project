@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
     private float currentHealth;
     public Image bloodOverlay;
+    public GameOver gameOver;
 
     void Start()
     {
@@ -22,12 +23,13 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player is dead");
+            gameOver.ShowGameOver();
         }
     }
     void UpdateOverlay()
     {
         float healthPercent = currentHealth / maxHealth;
-        float alpha = (1f - healthPercent) * 0.7f; ;
+        float alpha = (1f - healthPercent) * 0.7f;
         Debug.Log("Alpha: " + alpha);
         Color c = bloodOverlay.color;
         c.a = alpha;
