@@ -9,6 +9,8 @@ public class PotionCollision : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        // TODO: Continue debugging why this doesn't work
+        Debug.Log("collided!");
         liquidScript.fillAmount -= fillSpeed * Time.deltaTime;
         liquidScript.fillAmount = Mathf.Clamp(liquidScript.fillAmount, 0f, 1f);
 
