@@ -45,7 +45,7 @@ public class PourPotion : MonoBehaviour
         if (fluidTransform != null)
         {
 
-            Color potionColor = fluidTransform.GetComponentInChildren<MeshRenderer>().material.GetColor("_Tint");
+            Color potionColor = fluidTransform.GetComponentInChildren<MeshRenderer>().material.GetColor("_TopColor");
 
             ParticleSystem.MainModule main = pourParticles.main;
             main.startColor = potionColor;
