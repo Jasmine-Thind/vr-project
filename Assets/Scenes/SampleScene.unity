@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 126689529}
   - component: {fileID: 126689528}
   - component: {fileID: 126689527}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fluid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 217445276}
   - component: {fileID: 217445275}
   - component: {fileID: 217445274}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fluid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5448,7 +5448,7 @@ GameObject:
   - component: {fileID: 543904036}
   - component: {fileID: 543904034}
   - component: {fileID: 543904035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9041,9 +9041,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -9214,11 +9214,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 128
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -10359,6 +10359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Florence_flask
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fb0b01455e191c24b87848c181088517, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10995,7 +10999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 712541768}
   - component: {fileID: 712541769}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Potion2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11048,7 +11052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 734270451}
   - component: {fileID: 734270452}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Potion1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11564,7 +11568,7 @@ GameObject:
   - component: {fileID: 896469428}
   - component: {fileID: 896469430}
   - component: {fileID: 896469429}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15253,9 +15257,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -15426,11 +15430,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 128
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -17687,6 +17691,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Erlenmeyer_flask
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2d6b31bbb0cc4d74f9eb0dcbe73380be, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17974,7 +17982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1320697540}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19466,7 +19474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1623144166}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
