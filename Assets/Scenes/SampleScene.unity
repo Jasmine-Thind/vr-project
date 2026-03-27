@@ -11035,6 +11035,9 @@ MonoBehaviour:
   spout: {fileID: 1320697540}
   maxTilt: 45
   pourParticles: {fileID: 0}
+  liquidRenderer: {fileID: 0}
+  drainSpeed: 0.05
+  liquidScript: {fileID: 0}
 --- !u!1 &734270450
 GameObject:
   m_ObjectHideFlags: 0
@@ -11085,6 +11088,9 @@ MonoBehaviour:
   spout: {fileID: 1623144166}
   maxTilt: 80
   pourParticles: {fileID: 543904034}
+  liquidRenderer: {fileID: 217445277}
+  drainSpeed: 0.05
+  liquidScript: {fileID: 217445274}
 --- !u!1 &737678062
 GameObject:
   m_ObjectHideFlags: 0

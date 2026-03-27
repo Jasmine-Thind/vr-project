@@ -6,14 +6,24 @@ public class PourPotion : MonoBehaviour
     public float maxTilt = 45f;
     private bool isSpilling = false;
     public ParticleSystem pourParticles;
+    public MeshRenderer liquidRenderer;
+    public float drainSpeed = 0.05f;
+    private float currentFill = 0.5f;
+
+    private float tiltAngle = 0;
+
+    public Liquid liquidScript;
+
+    private bool pouredFully = false;
 
     void Update()
     {
-        float tiltAngle = Vector3.Angle(Vector3.up, transform.up);
+        tiltAngle = Vector3.Angle(Vector3.up, transform.up);
 
         if (tiltAngle > maxTilt)
         {
             if (!isSpilling) StartPour();
+            UpdateFillLevel();
         }
         else
         {
@@ -24,6 +34,11 @@ public class PourPotion : MonoBehaviour
     void StartPour()
     {
         isSpilling = true;
+
+        if (pouredFully)
+        {
+            return;
+        }
 
         Transform fluidTransform = transform.Find("Fluid");
 
@@ -48,5 +63,21 @@ public class PourPotion : MonoBehaviour
         isSpilling = false;
         pourParticles.Stop();
         Debug.Log("end pour");
+    }
+
+    void UpdateFillLevel()
+    {
+
+        // The logic in the script I got from MinionsArt seems to be inverted
+        // So the fill amount of 0 makes it full
+        float tiltInfluence = Mathf.InverseLerp(maxTilt, 90f, tiltAngle);
+        liquidScript.fillAmount += drainSpeed * tiltInfluence * Time.deltaTime;
+        liquidScript.fillAmount = Mathf.Clamp(liquidScript.fillAmount, 0f, 1f);
+
+        if (currentFill >= 1.0f)
+        {
+            pourParticles.Stop();
+            pouredFully = true;
+        }
     }
 }
