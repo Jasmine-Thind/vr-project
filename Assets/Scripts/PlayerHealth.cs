@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
     void UpdateOverlay()
     {
         float healthPercent = currentHealth / maxHealth;
-        float alpha = 1f - healthPercent;
+        float alpha = (1f - healthPercent) * 0.7f; ;
         Debug.Log("Alpha: " + alpha);
         Color c = bloodOverlay.color;
         c.a = alpha;
