@@ -8,7 +8,6 @@ public class PourPotion : MonoBehaviour
     public ParticleSystem pourParticles;
     public MeshRenderer liquidRenderer;
     public float drainSpeed = 0.05f;
-    private float currentFill = 0.5f;
 
     private float tiltAngle = 0;
 
@@ -22,7 +21,7 @@ public class PourPotion : MonoBehaviour
 
         if (tiltAngle > maxTilt)
         {
-            if (!isSpilling) StartPour();
+            if (!isSpilling && !pouredFully) StartPour();
             UpdateFillLevel();
         }
         else
@@ -35,10 +34,6 @@ public class PourPotion : MonoBehaviour
     {
         isSpilling = true;
 
-        if (pouredFully)
-        {
-            return;
-        }
 
         Transform fluidTransform = transform.Find("Fluid");
 
@@ -74,7 +69,7 @@ public class PourPotion : MonoBehaviour
         liquidScript.fillAmount += drainSpeed * tiltInfluence * Time.deltaTime;
         liquidScript.fillAmount = Mathf.Clamp(liquidScript.fillAmount, 0f, 1f);
 
-        if (currentFill >= 1.0f)
+        if (liquidScript.fillAmount >= 1.0f)
         {
             pourParticles.Stop();
             pouredFully = true;
