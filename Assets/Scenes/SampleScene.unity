@@ -10944,6 +10944,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5fd9f0a05bf0feb4a81d05cff139c317, type: 3}
       insertIndex: -1
       addedObject: {fileID: 692927910}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5fd9f0a05bf0feb4a81d05cff139c317, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 692927912}
   m_SourcePrefab: {fileID: 100100000, guid: 5fd9f0a05bf0feb4a81d05cff139c317, type: 3}
 --- !u!1 &692927902 stripped
 GameObject:
@@ -11160,6 +11163,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &692927912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692927902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b90387dd823851428f9fabfe28ace8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHits: 1
 --- !u!1 &712541767
 GameObject:
   m_ObjectHideFlags: 0
@@ -17428,6 +17444,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf65f43cbc111da4881a35a7ffee61db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 951881725}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf65f43cbc111da4881a35a7ffee61db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 951881727}
   m_SourcePrefab: {fileID: 100100000, guid: cf65f43cbc111da4881a35a7ffee61db, type: 3}
 --- !u!1 &951881719 stripped
 GameObject:
@@ -17525,6 +17544,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
   player: {fileID: 1952391299}
+--- !u!114 &951881727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951881719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b90387dd823851428f9fabfe28ace8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHits: 1
 --- !u!1 &971394776
 GameObject:
   m_ObjectHideFlags: 0
