@@ -99,8 +99,15 @@ public class PotionEffect : MonoBehaviour
     void TriggerGreen(GameObject enemy)
     {
         Debug.Log("green");
+
+        Debug.Log(enemy);
         EnemyHealth health = enemy.GetComponent<EnemyHealth>();
-        if (health != null) health.SpinAndSlow(3f); // spin for 3 seconds
+        Debug.Log(health);
+        if (health != null)
+        {
+            Debug.Log("SPIN!!");
+            health.SpinAndSlow(3f); // spin for 3 seconds
+        }
     }
 
     void TriggerMix(GameObject enemy)
