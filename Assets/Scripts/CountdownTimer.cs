@@ -6,7 +6,7 @@ public class CountdownTimer : MonoBehaviour
     public TextMeshProUGUI timerText;
     public GameObject timerCanvas;
 
-    private float[] attackTimes = { 10f, 20f }; // 3 mins for spider, 1 min for rat //use { 5f, 10f }; to test
+    private float[] attackTimes = { 60f, 30f }; // 3 mins for spider, 1 min for rat //use { 5f, 10f }; to test
     private int currentAttack = 0;
     private float timeRemaining;
 
