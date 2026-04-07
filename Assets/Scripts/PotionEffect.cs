@@ -11,12 +11,14 @@ public class PotionEffect : MonoBehaviour
     public Color mixColor = new Color(1f, 0.5f, 0f); // Orange
 
     [Header("Settings")]
-    public float colorThreshold = 0.2f;
+    public float colorThreshold = 1f;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("COLLIDED WITH SOMETHING");
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("COLLIDED!!!!!!!!!!!!");
             ApplyEffect(collision.gameObject);
             BreakBottle();
         }
@@ -34,21 +36,28 @@ public class PotionEffect : MonoBehaviour
         {
             TriggerGreen(enemy);
         }
-        else if (IsColorInRange(currentColor, mixColor))
+        /*else if (IsColorInRange(currentColor, mixColor))
         {
-            TriggerMix(enemy);
-        }
+            
+        }*/
         else
         {
-            Debug.Log("invalid colour");
+            TriggerMix(enemy);
         }
     }
 
     bool IsColorInRange(Color current, Color target)
     {
+        Debug.Log("current colour is");
+        Debug.Log(current.ToString());
         float distance = Mathf.Abs(current.r - target.r) +
                          Mathf.Abs(current.g - target.g) +
                          Mathf.Abs(current.b - target.b);
+
+        if (distance < colorThreshold)
+        {
+            Debug.Log("colour" + current.ToString() + " is " + target.ToString());
+        }
 
         return distance < colorThreshold;
     }
