@@ -64,7 +64,7 @@ public class PotionEffect : MonoBehaviour
 
     void BreakBottle()
     {
-        Debug.Log("breaking bottle");
+        Debug.Log("breaking bottle!");
         Color finalColor = liquidScript.GetComponent<MeshRenderer>().material.GetColor("_Tint");
 
         if (pourParticles != null)
@@ -72,9 +72,16 @@ public class PotionEffect : MonoBehaviour
             pourParticles.transform.parent = null;
 
             var main = pourParticles.main;
+            var shape = pourParticles.shape;
+
             main.startColor = finalColor;
 
-            pourParticles.Emit(50);
+            main.startSpeed = new ParticleSystem.MinMaxCurve(5f, 10f);
+            main.startSize = new ParticleSystem.MinMaxCurve(0.05f, 0.2f);
+            shape.shapeType = ParticleSystemShapeType.Sphere;
+            shape.radius = 0.1f;
+
+            pourParticles.Emit(100);
 
             Destroy(pourParticles.gameObject, main.duration);
         }
