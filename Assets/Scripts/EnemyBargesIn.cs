@@ -10,6 +10,7 @@ public class EnemyBargesIn : MonoBehaviour
     public GameObject door;
     public float doorOpenAngle = -90f;
     public float doorOpenSpeed = 2f;
+    public AudioClip doorBangSound;
 
     private bool movingToEndPoint = false;
     private bool openDoor = false;
@@ -18,6 +19,7 @@ public class EnemyBargesIn : MonoBehaviour
     private Quaternion targetCloseRotation;
     private NavMeshAgent agent;
     private EnemyChase enemyChase;
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -25,13 +27,20 @@ public class EnemyBargesIn : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         enemyChase = GetComponent<EnemyChase>();
         agent.enabled = false;
-        enemyChase.enabled = false; // disable chase at start
+        enemyChase.enabled = false;
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(EnemyEntrance());
     }
 
     IEnumerator EnemyEntrance()
     {
         yield return new WaitForSeconds(timerDuration);
+
+        // play door bang before opening
+        if (doorBangSound != null)
+            audioSource.PlayOneShot(doorBangSound);
+
+        yield return new WaitForSeconds(0.5f); // short delay after bang
         targetOpenRotation = Quaternion.Euler(0, doorOpenAngle, 0);
         openDoor = true;
         yield return new WaitForSeconds(1f);
@@ -53,7 +62,7 @@ public class EnemyBargesIn : MonoBehaviour
                 openDoor = false;
                 closeDoor = true;
                 agent.enabled = true;
-                enemyChase.enabled = true; // start chasing now
+                enemyChase.enabled = true;
             }
         }
 
