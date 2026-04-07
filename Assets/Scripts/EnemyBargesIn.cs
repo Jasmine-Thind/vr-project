@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyBargesIn : MonoBehaviour
 {
@@ -11,16 +12,20 @@ public class EnemyBargesIn : MonoBehaviour
     public float doorOpenSpeed = 2f;
 
     private bool movingToEndPoint = false;
-    private bool chasingPlayer = false;
     private bool openDoor = false;
     private bool closeDoor = false;
     private Quaternion targetOpenRotation;
     private Quaternion targetCloseRotation;
-    private Transform player;
+    private NavMeshAgent agent;
+    private EnemyChase enemyChase;
 
     void Start()
     {
         targetCloseRotation = door.transform.rotation;
+        agent = GetComponent<NavMeshAgent>();
+        enemyChase = GetComponent<EnemyChase>();
+        agent.enabled = false;
+        enemyChase.enabled = false; // disable chase at start
         StartCoroutine(EnemyEntrance());
     }
 
@@ -42,19 +47,17 @@ public class EnemyBargesIn : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, endPosition.position, moveSpeed * Time.deltaTime);
 
-            if (transform.position == endPosition.position)
+            if (Vector3.Distance(transform.position, endPosition.position) < 0.1f)
             {
                 movingToEndPoint = false;
                 openDoor = false;
                 closeDoor = true;
-                chasingPlayer = true; // start chasing after reaching endpoint
+                agent.enabled = true;
+                enemyChase.enabled = true; // start chasing now
             }
         }
 
         if (closeDoor)
             door.transform.rotation = Quaternion.Lerp(door.transform.rotation, targetCloseRotation, doorOpenSpeed * Time.deltaTime);
-
-        if (chasingPlayer)
-            transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
     }
 }
