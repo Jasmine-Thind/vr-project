@@ -13,10 +13,12 @@ public class PotionEffect : MonoBehaviour
     [Header("Settings")]
     public float colorThreshold = 0.2f;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("COLLIDED WITH SOMETHING");
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("COLLIDED!!!!!!!!!!!!");
             ApplyEffect(collision.gameObject);
             BreakBottle();
         }
@@ -34,13 +36,13 @@ public class PotionEffect : MonoBehaviour
         {
             TriggerGreen(enemy);
         }
-        else if (IsColorInRange(currentColor, mixColor))
+        /*else if (IsColorInRange(currentColor, mixColor))
         {
-            TriggerMix(enemy);
-        }
+            
+        }*/
         else
         {
-            Debug.Log("invalid colour");
+            TriggerMix(enemy);
         }
     }
 
