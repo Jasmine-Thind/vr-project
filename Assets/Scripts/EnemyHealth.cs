@@ -44,16 +44,20 @@ public class EnemyHealth : MonoBehaviour
 
     IEnumerator SpinCoroutine(float duration)
     {
+        Debug.Log("spin coroutine start");
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         float originalSpeed = agent.speed;
         agent.speed = originalSpeed * 0.3f;
+        agent.updateRotation = false;
         float elapsed = 0f;
         while (elapsed < duration)
         {
             transform.Rotate(0, 360 * Time.deltaTime, 0);
             elapsed += Time.deltaTime;
+            yield return null;
         }
         agent.speed = originalSpeed;
+        agent.updateRotation = true;
         yield break;
     }
 }
