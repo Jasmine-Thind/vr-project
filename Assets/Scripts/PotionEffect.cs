@@ -11,7 +11,7 @@ public class PotionEffect : MonoBehaviour
     public Color mixColor = new Color(1f, 0.5f, 0f); // Orange
 
     [Header("Settings")]
-    public float colorThreshold = 0.2f;
+    public float colorThreshold = 1f;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -48,9 +48,16 @@ public class PotionEffect : MonoBehaviour
 
     bool IsColorInRange(Color current, Color target)
     {
+        Debug.Log("current colour is");
+        Debug.Log(current.ToString());
         float distance = Mathf.Abs(current.r - target.r) +
                          Mathf.Abs(current.g - target.g) +
                          Mathf.Abs(current.b - target.b);
+
+        if (distance < colorThreshold)
+        {
+            Debug.Log("colour" + current.ToString() + " is " + target.ToString());
+        }
 
         return distance < colorThreshold;
     }
