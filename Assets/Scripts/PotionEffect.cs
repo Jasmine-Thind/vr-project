@@ -89,7 +89,24 @@ public class PotionEffect : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void TriggerSlow(GameObject enemy) { Debug.Log("slowed"); }
-    void TriggerGreen(GameObject enemy) { Debug.Log("green"); }
-    void TriggerMix(GameObject enemy) { Debug.Log("mix"); }
+    void TriggerSlow(GameObject enemy)
+    {
+        Debug.Log("slowed");
+        EnemyHealth health = enemy.GetComponent<EnemyHealth>();
+        if (health != null) health.SlowEnemy(5f); // slow for 5 seconds
+    }
+
+    void TriggerGreen(GameObject enemy)
+    {
+        Debug.Log("green");
+        EnemyHealth health = enemy.GetComponent<EnemyHealth>();
+        if (health != null) health.SpinAndSlow(3f); // spin for 3 seconds
+    }
+
+    void TriggerMix(GameObject enemy)
+    {
+        Debug.Log("mix");
+        EnemyHealth health = enemy.GetComponent<EnemyHealth>();
+        if (health != null) health.InstantDeath();
+    }
 }
