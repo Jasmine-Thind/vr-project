@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alchemist's Last Stand</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --green: #4ade80;
+    --red: #f87171;
+    --orange: #fb923c;
+    --gold: #fbbf24;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --border: rgba(251,191,36,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Ambient background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 20%, rgba(74,222,128,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 80% 80%, rgba(248,113,113,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 50% 50%, rgba(251,191,36,0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  header {
+    padding: 5rem 0 3rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .institution {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .course {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 3rem;
+    opacity: 0.8;
+  }
+
+  .title-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .title-decoration::before,
+  .title-decoration::after {
+    content: '';
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+
+  .title-decoration::after {
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .flask-icon {
+    font-size: 1.5rem;
+    animation: bubble 3s ease-in-out infinite;
+  }
+
+  @keyframes bubble {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--gold) 0%, #fff8e1 50%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 1.1rem;
+  }
+
+  .authors {
+    margin-top: 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: var(--text);
+  }
+
+  /* Sections */
+  section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp 0.6s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  section:nth-child(2) { animation-delay: 0.1s; }
+  section:nth-child(3) { animation-delay: 0.2s; }
+  section:nth-child(4) { animation-delay: 0.3s; }
+  section:nth-child(5) { animation-delay: 0.4s; }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+  }
+
+  p {
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+  }
+
+  /* Potion cards */
+  .potion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .potion-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .potion-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .potion-card.red { border-color: rgba(248,113,113,0.4); }
+  .potion-card.green { border-color: rgba(74,222,128,0.4); }
+  .potion-card.orange { border-color: rgba(251,146,60,0.4); }
+
+  .potion-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .potion-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+  }
+
+  .potion-card.red .potion-name { color: var(--red); }
+  .potion-card.green .potion-name { color: var(--green); }
+  .potion-card.orange .potion-name { color: var(--orange); }
+
+  .potion-effect {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* Controls */
+  .controls-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .controls-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .key {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.2rem 0.6rem;
+    color: var(--gold);
+    white-space: nowrap;
+    min-width: 140px;
+    text-align: center;
+  }
+
+  /* Video link */
+  .video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(251,146,60,0.1));
+    border: 1px solid rgba(251,191,36,0.4);
+    border-radius: 6px;
+    color: var(--gold);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+  }
+
+  .video-link:hover {
+    background: linear-gradient(135deg, rgba(251,191,36,0.25), rgba(251,146,60,0.2));
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* GitHub link */
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 0.9rem 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+  }
+
+  .github-link:hover {
+    border-color: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Footer */
+  footer {
+    padding: 2.5rem 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    .potion-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <p class="institution">Toronto Metropolitan University &mdash; Department of Computer Science</p>
+    <p class="course">CPS643 Virtual Reality</p>
+    <div class="title-decoration"><span class="flask-icon">⚗️</span></div>
+    <h1>Alchemist's Last Stand</h1>
+    <p class="subtitle">A VR Potion Mixing &amp; Combat Game</p>
+    <p class="authors">Mariam Wriglesworth &amp; Jasmine Thind</p>
+  </header>
+
+  <section>
+    <p class="section-label">About</p>
+    <h2>Project Description</h2>
+    <p>In this game, the player finds themselves in an abandoned chemistry lab. Around the room are various potions. The door is boarded up and various enemies are trying to get in. It's up to the player to launch potions at the enemy to defend themselves.</p>
+    <p>The player can mix potions to create new ones that have different properties when thrown at an enemy — slow them down, disorient them, or eliminate them instantly.</p>
+  </section>
+
+  <section>
+    <p class="section-label">Gameplay</p>
+    <h2>Potion Effects</h2>
+    <p>Mix the potions in the lab to create different chemical weapons. Each resulting colour has a unique effect on enemies.</p>
+    <div class="potion-grid">
+      <div class="potion-card red">
+        <span class="potion-icon">🧪</span>
+        <div class="potion-name">Red Potion</div>
+        <div class="potion-effect">Slows the enemy</div>
+      </div>
+      <div class="potion-card green">
+        <span class="potion-icon">🧪</span>
+        <div class="potion-name">Green Potion</div>
+        <div class="potion-effect">Spins &amp; slows</div>
+      </div>
+      <div class="potion-card orange">
+        <span class="potion-icon">🧪</span>
+        <div class="potion-name">Mixed Potion</div>
+        <div class="potion-effect">Instant death</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Controls</p>
+    <h2>How to Play</h2>
+    <ul class="controls-list">
+      <li><span class="key">A Button</span> Teleport to next hotspot</li>
+      <li><span class="key">Hand Trigger + Touch</span> Grab a potion</li>
+      <li><span class="key">Throw + Release</span> Launch potion at enemy</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="section-label">Media</p>
+    <h2>Project Video &amp; Repository</h2>
+    <p>Watch a full playthrough of Alchemist's Last Stand, or explore the source code on GitHub.</p>
+    <video controls style="width:100%; border-radius:8px; border:1px solid var(--border); margin-top:1rem;">
+      <source src="CPS643-Jasmine_Thind-Mariam_Wriglesworth-Project.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <br>
+    <a class="github-link" href="https://github.com/Jasmine-Thind/vr-project" target="_blank">⌥ &nbsp;View on GitHub</a>
+  </section>
+
+  <footer>
+    <p>Toronto Metropolitan University &mdash; CPS643 Virtual Reality &mdash; 2026</p>
+  </footer>
+</div>
+</body>
+</html>
