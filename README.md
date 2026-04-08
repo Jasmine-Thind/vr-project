@@ -9,3 +9,6 @@ properties when thrown at an enemy.
 # UI
 Press A to teleport to the next hotspot, and press the hand trigger while
 touching a potion to grab it. Throw and release the trigger to launch it.
+
+# One-line Description
+Potion mixing and fighting game
