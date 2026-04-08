@@ -10987,7 +10987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21426dd83d0da04c999b0a500a9d7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBargesIn
-  timerDuration: 20
+  timerDuration: 60
   endPosition: {fileID: 2120984016}
   moveSpeed: 3
   door: {fileID: 1870786698}
